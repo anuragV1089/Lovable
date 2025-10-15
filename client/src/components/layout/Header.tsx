@@ -1,8 +1,11 @@
 import Button from "../ui/Button";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Header() {
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
   return (
-    <>
+    <motion.header style={{ opacity }}>
       <div className="fixed top-7 z-50 bg-gradient-to-r w-full flex justify-center">
         <div className="mx-20 max-w-screen-xl w-full rounded-full bg-[linear-gradient(135deg,_#0D99FF,_#384AC5,_#008ECC,_#4E88DE,_#5260FC,_#0012D8)] bg-black!">
           <div className="text-white max-w-screen-xl px-7 py-3 rounded-full backdrop-blur-2xl flex justify-between items-center">
@@ -40,6 +43,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </>
+    </motion.header>
   );
 }
