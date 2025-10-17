@@ -1,7 +1,7 @@
+import { useToolTip } from "@/context/ToolTipContext";
 import { motion } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
 import type { JSX } from "react";
-import { useState } from "react";
 
 type PropType = HTMLMotionProps<"div"> & {
   hoverText: string;
@@ -9,16 +9,30 @@ type PropType = HTMLMotionProps<"div"> & {
 };
 
 export default function ToolTip({ hoverText, icon, ...props }: PropType) {
-  const [isActive, setActive] = useState(false);
   const gradient =
     "radial-gradient(circle at center, rgba(13,153,255,0.7) 0%, rgba(13,153,255,0.5) 45%, rgba(13,153,255,0) 90%)";
+
+  const { currActive, setCurrActive } = useToolTip();
+
+  let isActive: boolean = currActive.filter((ele) => {
+    return ele.id === hoverText;
+  })[0].val;
+
+  const handleClick = () => {
+    setCurrActive((currVal) => {
+      return currVal.map((ele) => {
+        return { id: ele.id, val: ele.id === hoverText ? true : false };
+      });
+    });
+    console.log(hoverText);
+  };
   return (
     <motion.div
       {...props}
       className="relative flex justify-end"
-      whileHover={isActive ? undefined : "hovered"}
+      whileHover="hovered"
       onClick={() => {
-        setActive((isActive) => !isActive);
+        handleClick();
       }}
       initial="rest"
       animate={isActive ? "active" : "rest"}
