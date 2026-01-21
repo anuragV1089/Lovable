@@ -1,4 +1,4 @@
-export default function Code() {
+export default function CodeIcon() {
   return (
     <>
       <svg

@@ -1,4 +1,4 @@
-export default function Preview() {
+export default function PreviewIcon() {
   return (
     <>
       <svg

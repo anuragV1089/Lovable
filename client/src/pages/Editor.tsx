@@ -6,24 +6,13 @@ import {
 import Navbar from "@/components/Navbar";
 import type { ReactNode } from "react";
 import ExpandingButton from "@/components/ui/ExpandingButton";
-import ToolTip from "@/components/ui/ToolTip";
-import Code from "@/components/ui/Code";
-import { ToolTipProvider, useToolTip } from "@/context/ToolTipContext";
+import Code from "@/components/ui/CodeIcon";
+import { Outlet } from "react-router-dom";
+import WorkSpace from "@/components/WorkSpace";
 
 type ItemType = { [key: string]: ReactNode };
 
 export default function Editor() {
-  const { currActive } = useToolTip();
-  const items: ItemType = {
-    Code: <div>Code</div>,
-    Preview: <div>Preview</div>,
-    Arrow: <div>Arrow</div>,
-    Logo: <div>Logo</div>,
-  };
-  const element = currActive.filter((ele) => {
-    return ele.val === true;
-  });
-
   return (
     <div className="max-w-screen mx-auto h-screen flex flex-col text-white p-1">
       <div className="flex-1">
@@ -60,8 +49,7 @@ export default function Editor() {
           </ResizablePanel>
           <ResizableHandle withHandle />
           <ResizablePanel defaultSize={75}>
-            <Navbar />
-            {currActive && items[element[0].id]}
+            <WorkSpace />
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>

@@ -14,8 +14,8 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
       </Route>
       <Route path="/editor" element={<Editor />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 export default router;
