@@ -18,7 +18,7 @@ export default function Editor() {
       <div className="flex-1">
         <ResizablePanelGroup direction="horizontal" className="border">
           <ResizablePanel defaultSize={25} className="min-w-sm">
-            <div className="bg-[#1C1C1C] h-12 text-white px-4 flex items-center">
+            <div className="bg-[#1C1C1C] h-16 text-white px-4 flex items-center">
               <svg
                 width="30"
                 height="30"
