@@ -28,7 +28,7 @@ const ExpandingButton: React.FC<{
         ${activeTab === label ? "border-[#0D99FF] text-[#0D99FF]" : "bg-transparent border-white"}
       `}
     >
-      <motion.span layout className="text-xl">
+      <motion.span layout className="text-2xl">
         {icon}
       </motion.span>
       <AnimatePresence mode="popLayout">

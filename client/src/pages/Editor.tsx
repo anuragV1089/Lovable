@@ -3,14 +3,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import Navbar from "@/components/Navbar";
-import type { ReactNode } from "react";
-import ExpandingButton from "@/components/ui/ExpandingButton";
-import Code from "@/components/ui/CodeIcon";
-import { Outlet } from "react-router-dom";
 import WorkSpace from "@/components/WorkSpace";
-
-type ItemType = { [key: string]: ReactNode };
 
 export default function Editor() {
   return (
