@@ -11,7 +11,6 @@ import { handleEditorDidMount } from "@/lib/utils";
 
 export default function Code() {
   const activeFilePath = useCodeStore((state) => state.activeFilePath);
-  const updateFile = useCodeStore((state) => state.updateFile);
   const fileTree = useCodeStore((state) => state.fileTree);
 
   const content = useCodeStore((state) => {
@@ -44,7 +43,6 @@ export default function Code() {
                 language={getLanguageFromFilePath(activeFilePath)}
                 path={`file:///${activeFilePath}`}
                 value={content}
-                onChange={(value) => updateFile(activeFilePath, value || "")}
                 options={{
                   readOnly: true,
                   minimap: { enabled: false },

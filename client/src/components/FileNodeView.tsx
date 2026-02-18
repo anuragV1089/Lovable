@@ -43,7 +43,9 @@ export default function FileNodeView({ node, depth = 0 }: props) {
         paddingLeft,
       }}
       className={`cursor-pointer py-1 ${isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"}`}
-      onClick={() => setActiveFile(node.path)}
+      onClick={() => {
+        setActiveFile(node.path);
+      }}
     >
       <div className="px-3">{node.name}</div>
     </div>

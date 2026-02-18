@@ -51,3 +51,30 @@ export const useCodeStore = create<CodeStore>((set) => ({
   setFileTree: (tree) => set({ fileTree: tree }),
   setFiles: (files) => set({ files }),
 }));
+
+type Message = {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+};
+
+type ChatStore = {
+  messages: Message[];
+  addMessage: (message: Message) => void;
+  isStreaming: boolean;
+  setIsStreaming: (isStreaming: boolean) => void;
+  streamingContent: string;
+  setStreamingContent: (content: string) => void;
+};
+
+export const useChatStore = create<ChatStore>((set) => ({
+  messages: [],
+  addMessage: (message) =>
+    set((state) => ({
+      messages: [...state.messages, message],
+    })),
+  isStreaming: false,
+  setIsStreaming: (isStreaming) => set({ isStreaming }),
+  streamingContent: "",
+  setStreamingContent: (content) => set({ streamingContent: content }),
+}));
